@@ -9,7 +9,6 @@ body {
   font-family: "Raleway", "Noto Sans JP", sans-serif;
   font-weight: 400;
   font-size: 1.6rem;
-  font-display: swap;
   color: #333;
   margin: 0;
   padding: 0;
@@ -22,12 +21,15 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("./background-image.jpg") center center no-repeat;
+  background-image: url("background-image.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
 .container {
   width: 50vw;
+  margin: auto;
   text-align: center;
   padding: 40px 20px;
   border-radius: 15px;
@@ -43,7 +45,7 @@ body {
 /* Title.js */
 h1 {
   font-weight: 400;
-  margin: 0px 0 50px;
+  margin: 0 0 50px;
 }
 
 /* Form.js */
@@ -53,12 +55,12 @@ input[type="text"] {
   border-bottom: solid 1px #f15186;
   width: 40%;
   padding-bottom: 4px;
-  color: #fff !important;
+  color: #fff;
   font-weight: lighter;
   letter-spacing: 2px;
   margin-bottom: 30px;
   margin-right: 20px;
-  font-size: 20px;
+  font-size: 1.8rem;
 }
 
 button {
@@ -100,6 +102,7 @@ button:hover {
 .results-temp > span {
   font-size: 3rem;
   color: #333;
+  vertical-align: middle;
 }
 
 .results-condition {
