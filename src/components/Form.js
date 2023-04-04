@@ -1,17 +1,15 @@
-import { useState } from "react";
-
-const Form = () => {
-  const [city, setCity] = useState("");
+const Form = (props) => {
   return (
     <form>
       <input
         type="text"
         name="city"
         placeholder="都市名"
-        onChange={(e) => setCity(e.target.value)}
+        onChange={(e) => props.setCity(e.target.value)}
       />
-      {city}
-      <button type="submit">Get Weather</button>
+      <button type="submit" onClick={props.getWeather}>
+        Get Weather
+      </button>
     </form>
   );
 };
