@@ -7,19 +7,36 @@ import "./App.css";
 
 function App() {
   const [city, setCity] = useState("");
+  const [results, setResults] = useState({
+    country: "",
+    cityName: "",
+    temperature: "",
+    conditionText: "",
+    icon: "",
+  });
   const getWeather = (e) => {
     e.preventDefault();
     axios
       .get(
-        "https://api.weatherapi.com/v1/current.json?key=197391a6980b475095800838230404&q=London&aqi=no"
+        `https://api.weatherapi.com/v1/current.json?key=197391a6980b475095800838230404&q=${city}&aqi=no`
       )
-      .then((res) => console.log(res));
+      .then((res) =>
+        setResults({
+          country: res.data.location.country,
+          cityName: res.data.location.name,
+          temperature: res.data.current.temp_c,
+          conditionText: res.data.current.condition.text,
+          icon: res.data.current.condition.icon,
+        })
+      );
   };
   return (
-    <div className="test">
-      <Title cityName={city} />
-      <Form setCity={setCity} getWeather={getWeather} />
-      <Results />
+    <div className="wrapper">
+      <div className="container">
+        <Title />
+        <Form setCity={setCity} getWeather={getWeather} />
+        <Results results={results} />
+      </div>
     </div>
   );
 }
